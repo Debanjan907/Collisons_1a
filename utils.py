@@ -20,3 +20,4 @@ discreet_str ='discreet_loc_time';
 Data_dir = 'Data'
 gridnum = 10;  #
 timediv = 60  # 30 mins
+valid_years = [ 2012,2013,2014,2015,2016]
