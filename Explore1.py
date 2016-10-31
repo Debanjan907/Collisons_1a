@@ -268,7 +268,7 @@ def coll_by_loc_weekday(city, year):
             plt.scatter(xy[1], xy[0], c=z, s=100, edgecolor='')
             plt.show()
 
-
+'''
 # coll_by_time_and_weekday('nyc',2014)
 # coll_by_loc_weekday('nyc',2015)
 
@@ -317,8 +317,8 @@ def run_kde(city, year, kde):
     print samples;
     # res = kde.score_samples(data)
     # print res
-
 # run_kde('nyc',2014,kde)
+'''
 
 
 def PoissonRegression(city, year):
@@ -342,8 +342,9 @@ def PoissonRegression(city, year):
     del combined['count_x']
     combined.rename(columns={'count_y': 'count'}, inplace=True)
     formula = 'count ~ weekday + time + lat + lon';
-    mod1 = smf.glm(formula = formula, data = combined, family = sm.families.Poisson()).fit()
-    print(mod1.summary())
+    model = smf.glm(formula = formula, data = combined, family = sm.families.Poisson()).fit()
+    print (model.summary())
+    print (model.predict(pd.DataFrame( {'weekday':[5], 'time':[10], 'lat':[42.6], 'lon':[-73.9]})))
     return;
 
 
