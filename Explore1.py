@@ -344,8 +344,7 @@ def PoissonRegression(city, year):
     formula = 'count ~ weekday + time + lat + lon';
     model = smf.glm(formula = formula, data = combined, family = sm.families.Poisson()).fit()
     print (model.summary())
-    print (model.predict(pd.DataFrame( {'weekday':[5], 'time':[10], 'lat':[42.6], 'lon':[-73.9]})))
+    print (model.predict(pd.DataFrame( { 'weekday' : [3], 'time':[8], 'lat':[40.5], 'lon':[-74.2]})))
     return;
-
 
 PoissonRegression('nyc', 2013)
